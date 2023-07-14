@@ -11,7 +11,7 @@ const activity = cwd.includes("Lets-get-social")
   ? cwd.split("Lets-get-social")[1]
   : cwd;
 
-app.use(express.urlencouded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
 
