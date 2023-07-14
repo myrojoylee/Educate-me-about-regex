@@ -81,7 +81,7 @@ module.exports = {
     try {
       const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $addToSet: { reactions: req.body } },
+        { $addToSet: { friends: req.body } },
         { runValidators: true, new: true }
       );
 
@@ -98,9 +98,9 @@ module.exports = {
   // remove friend from user
   async removeFriend(req, res) {
     try {
-      const user = await User.findByIdAndUpdate(
+      const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $pull: { reaction: { reactionId: req.params.reactionId } } },
+        { $pull: { friends: { friendId: req.params.friendId } } },
         { runValidators: true, new: true }
       );
 
@@ -110,7 +110,7 @@ module.exports = {
 
       res.json(user);
     } catch (err) {
-      res.statu(500).json(err);
+      res.status(500).json(err);
     }
   },
 };
