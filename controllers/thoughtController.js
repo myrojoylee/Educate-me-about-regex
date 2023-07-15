@@ -75,7 +75,7 @@ module.exports = {
   },
 
   // add reaction to thought
-  async addThought(req, res) {
+  async addReaction(req, res) {
     console.log("You are adding a reaction");
     console.log(req.body);
 
@@ -87,7 +87,9 @@ module.exports = {
       );
 
       if (!thought) {
-        return res.status(404).json({ message: "No user found with that id!" });
+        return res
+          .status(404)
+          .json({ message: "No thoughtfound with that id!" });
       }
 
       res.json(thought);
