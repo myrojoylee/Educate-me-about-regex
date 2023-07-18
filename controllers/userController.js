@@ -1,12 +1,6 @@
 // const { ObjectId } = require("mongoose").Types;
 const { User } = require("../models");
 
-// do we need aggreggate functions ?
-// const totalUsers = async () => {
-//   const numberOfUsers = await User.aggregate().count("userCount");
-//   return numberOfUsers;
-// };
-
 module.exports = {
   // Get all users
   async getUsers(req, res) {
