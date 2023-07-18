@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-// const thoughtSchema = require("./Thought");
 
 const userSchema = new Schema(
   {
@@ -12,7 +11,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      //need email validation line
+      validate: {
+        validator: function (v) {
+          return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(v);
+        },
+        message: (props) => `${props.value} is not a valid email!`,
+      },
     },
     thoughts: [
       {
@@ -20,8 +24,6 @@ const userSchema = new Schema(
         ref: "Thought",
       },
     ],
-
-    // how to self reference this?
     friends: [
       {
         type: Schema.Types.ObjectId,
