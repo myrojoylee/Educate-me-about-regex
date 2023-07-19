@@ -28,7 +28,7 @@ There is no frontend portion for this so all API endpoint testing was was done i
 
 ## Usage
 
-We start up the server with `nodemon server` and begin testing our endpoints in Insomnia Core. The following video tests all of the routes. The video can also be found [here](https://drive.google.com/file/d/1PbNuc9WaY8I9nd9N2yDRLAWCANcOKZZR/view?usp=sharing).
+We start up the server with `nodemon index` and begin testing our endpoints in Insomnia Core. The following video tests all of the routes. The video can also be found [here](https://drive.google.com/file/d/1i-r2_mY8GvPFHTNZgMpnDiGvLdBl00js/view?usp=sharing).
 
 https://github.com/myrojoylee/e-commerce-mock-backend/assets/120980593/df1e43ad-71c5-4808-add4-e7c09e0ea5a0
 

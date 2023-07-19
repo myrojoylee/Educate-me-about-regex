@@ -48,6 +48,7 @@ module.exports = {
       if (!user) {
         return res.status(404).json({ message: "No user found with that id!" });
       }
+      res.json({ message: "User updated!" });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -75,9 +76,6 @@ module.exports = {
 
   // add friend to user
   async addFriend(req, res) {
-    console.log("You are adding a friend");
-    console.log(req.body);
-
     try {
       const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
@@ -91,7 +89,6 @@ module.exports = {
 
       res.json(user);
     } catch (err) {
-      console.log(err);
       res.status(500).json(err);
     }
   },

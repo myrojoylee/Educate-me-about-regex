@@ -14,9 +14,9 @@ module.exports = {
   // get single thought
   async getSingleThought(req, res) {
     try {
-      const thought = await Thought.findOne({ _id: req.params.userId }).select(
-        "-__v"
-      );
+      const thought = await Thought.findOne({
+        _id: req.params.thoughtId,
+      }).select("-__v");
 
       if (!thought) {
         return res
@@ -65,6 +65,7 @@ module.exports = {
           .status(404)
           .json({ message: "No thought found with that id!" });
       }
+      res.json({ message: "Thought updated!" });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -101,9 +102,6 @@ module.exports = {
 
   // add reaction to thought
   async addReaction(req, res) {
-    console.log("You are adding a reaction");
-    console.log(req.body);
-
     try {
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
@@ -136,7 +134,7 @@ module.exports = {
         return res.status(404).json({ message: "No thought found with ID!" });
       }
 
-      res.json(thought);
+      res.json({ message: "Reaction successfully deleted!" });
     } catch (err) {
       res.status(500).json(err);
     }
