@@ -1,5 +1,5 @@
 // const { ObjectId } = require("mongoose").Types;
-const { User } = require("../models");
+const { User, Thought } = require("../models");
 
 module.exports = {
   // Get all users
@@ -61,8 +61,13 @@ module.exports = {
         return res.status(404).json({ message: "No such user exists!" });
       }
 
+      // const thought = await Thought.deleteMany({
+      //   username: req.params.username,
+      // });
+
       res.json({ message: "User successfully deleted." });
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },

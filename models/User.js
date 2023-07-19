@@ -39,6 +39,11 @@ const userSchema = new Schema(
   }
 );
 
+// trying to delete associated thoughts but this does not work
+userSchema.pre("remove", async function () {
+  await this.model("Thought").deleteMany({ _id: this.thoughts });
+});
+
 // retrieves length of user's friends array field on query
 userSchema.virtual("friendCount").get(function () {
   return this.friends.length;

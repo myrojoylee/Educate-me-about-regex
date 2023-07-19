@@ -34,6 +34,7 @@ thoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
 
+// getter to format date upon query
 function formatDate(createdAt) {
   return createdAt.toLocaleDateString("en-US", {
     day: "2-digit",
